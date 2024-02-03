@@ -1,19 +1,48 @@
-<div class="container bg-black" style="padding: 12px;">
-  <span class="text-white text-sm text-neutral-400">Qual o Titulo do evento?</span>
-  <div class="flex w-full margin-right: 12px;">
-    <span class="text-white inline-block w-full" style="font-family: 'Anton', sans-serif; font-size: 45px;">Evento Legal muito legal mesmo</span>
-    <div class=" flex items-center">
-      <i class="fas fa-pen" 
-      style="color: #6B6B6B;" 
-      ></i>
+<div class="container bg-black h-full px-4" style="">
+  <div class="py-7">
+    <i class="fas fa-chevron-left text-white" style="font-size: 21px;"></i>
+  </div>
+  <div class="main space-y-4">
+    <div class="flex space-x-4" (click)="enableEditing()">
+      <span #editableText class="text-white inline-block w-full" style="line-height: 1; font-family: 'Anton', sans-serif; font-size: 45px;" contenteditable>
+        Evento Legal muito legal mesmo
+      </span>
+      <div class="flex items-center">
+        <i class="fas fa-pen" style="color: #6B6B6B;"></i>
+      </div>
     </div>
-  </div> 
-  <button class="bg-white">
-    Sem ideia? Gere um nome legal!!
-    <i class="fas fa-dice-five" 
-    style="color: #6B6B6B;" 
-    ></i>
-  </button> 
-  
+    
+    
+    <button class="bg-white px-3.5 py-1.5 rounded-full text-xs font-medium">
+      Sem ideia? Gere um nome legal!!
+      <i class="fas fa-dice-five text-sm"></i>
+    </button> 
+    <div class="w-full bg-neutral-800 px-3.5 py-5 rounded-lg space-y-4">
+      <div>
+        <label for="eventDesc" class="text-neutral-400 ">Descrição do evento</label>
+        <textarea id="eventDesc" 
+          name="eventDesc" rows="3" 
+          class="w-full rounded-lg px-3.5 py-1.5 text-sm">
+          Vamos comemorar o aniversario dela bem feliz e animado, esperamos a participação de todos
+        </textarea>
+      </div>  
+      <div>
+        <label for="eventDesc" class="text-neutral-400 ">Descrição do evento</label>
+        <input type="text"
+          class="w-full rounded-lg px-3.5 py-1.5"
+        id="eventLocal" name="eventLocal" placeholder="Casa da vovó">    
+      </div>
+      <div>
+        <label for="eventDesc" class="text-neutral-400 ">Tipo de evento</label>
+      <select name="cars" id="cars"
+      class="w-full rounded-lg px-3.5 py-1.5 text-sm bg-neutral-700 text-white">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      </div>      
+    </div>
+  </div>
   
 </div>   
