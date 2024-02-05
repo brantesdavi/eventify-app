@@ -4,8 +4,9 @@
   </div>
   <div class="main space-y-4">
     <div class="flex space-x-4" (click)="enableEditing()">
-      <span #editableText class="text-white inline-block w-full" style="line-height: 1; font-family: 'Anton', sans-serif; font-size: 45px;" contenteditable>
-        Evento Legal muito legal mesmo
+      <span #editableText 
+      class="text-white inline-block w-full" style="line-height: 1; font-family: 'Anton', sans-serif; font-size: 45px;" contenteditable
+      name="eventTitle">Evento Legal muito legal
       </span>
       <div class="flex items-center">
         <i class="fas fa-pen" style="color: #6B6B6B;"></i>
@@ -13,7 +14,9 @@
     </div>
     
     
-    <button class="bg-white px-3.5 py-1.5 rounded-full text-xs font-medium">
+    <button class="bg-white px-3.5 py-1.5 rounded-full text-xs font-medium"
+     (click)="generateTitle()"
+    >
       Sem ideia? Gere um nome legal!!
       <i class="fas fa-dice-five text-sm"></i>
     </button> 
@@ -22,25 +25,43 @@
         <label for="eventDesc" class="text-neutral-400 ">Descrição do evento</label>
         <textarea id="eventDesc" 
           name="eventDesc" rows="3" 
-          class="w-full rounded-lg px-3.5 py-1.5 text-sm">
+          class="w-full rounded-lg px-3.5 py-1.5 text-sm" required>
           Vamos comemorar o aniversario dela bem feliz e animado, esperamos a participação de todos
         </textarea>
       </div>  
       <div>
         <label for="eventDesc" class="text-neutral-400 ">Descrição do evento</label>
         <input type="text"
-          class="w-full rounded-lg px-3.5 py-1.5"
-        id="eventLocal" name="eventLocal" placeholder="Casa da vovó">    
+          class="w-full rounded-lg px-3.5 py-1.5 text-sm"
+        id="eventLocal" name="eventLocal" placeholder="Casa da vovó" required>    
+      </div>
+      <div class="flex gap-x-2">
+        <div>
+          <label for="eventDesc" class="text-neutral-400 ">Data</label>
+          <app-datepicker></app-datepicker>
+        </div>
+        <div>
+          <label for="eventDesc" class="text-neutral-400 ">Hora</label>
+          <app-timepicker></app-timepicker>
+        </div>
       </div>
       <div>
-        <label for="eventDesc" class="text-neutral-400 ">Tipo de evento</label>
-      <select name="cars" id="cars"
-      class="w-full rounded-lg px-3.5 py-1.5 text-sm bg-neutral-700 text-white">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
+        <label for="eventCategory" class="text-neutral-400 ">Tipo de evento</label>
+        <select name="eventCategory" 
+          id="eventCategory"
+          class="w-full rounded-lg px-3.5 py-1.5 text-sm"
+          [(ngModel)]="selectedCategory"
+          [ngClass]="{'text-black': isDarkOption(selectedCategory), 'text-white': !isDarkOption(selectedCategory)}"
+          [ngStyle]="{ 'background-color': getCategoryColor() }"
+        >
+          <option value="0" >Escolha uma opção</option>
+          <option value="1">Festa</option> 
+          <option value="2">Conferencia</option>
+          <option value="3" >Social</option> 
+          <option value="4">esportivo</option> 
+          <option value="5">cultural</option>
+          <option value="6">Outro</option>
+        </select>
       </div>      
     </div>
   </div>

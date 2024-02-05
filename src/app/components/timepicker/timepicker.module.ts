@@ -5,9 +5,9 @@ import { TimepickerComponent } from './timepicker.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 @NgModule({
-  imports: [CommonModule, FormsModule, NgxMaskPipe, NgxMaskDirective],
+  imports: [CommonModule, FormsModule],
   declarations: [TimepickerComponent],
   exports: [TimepickerComponent],
-  providers:[provideNgxMask(),]
+  providers:[provideNgxMask()]
 })
 export class TimepickerModule {}
