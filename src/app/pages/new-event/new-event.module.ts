@@ -7,17 +7,17 @@ import { DatepickerModule } from '../../components/datepicker/datepicker.module'
 import { TimepickerModule } from '../../components/timepicker/timepicker.module';
 
 @NgModule({
-  declarations: [
-    NewEventComponent
-  ],  
-  imports: [
-    CommonModule, 
-    FormsModule,
-    DatepickerModule,
-    TimepickerModule
-  ],
-  exports: [
-    NewEventComponent
-  ]
+    declarations: [
+        NewEventComponent
+    ],
+    exports: [
+        NewEventComponent
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        DatepickerModule,
+        TimepickerModule
+    ]
 })
 export class NewEventModule {}
