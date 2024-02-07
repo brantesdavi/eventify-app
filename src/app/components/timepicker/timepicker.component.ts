@@ -1,25 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-timepicker',
   templateUrl: './timepicker.component.html',
 })
 export class TimepickerComponent {
-  time = '';
-  date = new Date();
-  hours = this.date.getHours().toString().padStart(2, '0');
-  minutes = this.date.getMinutes().toString().padStart(2, '0');
-  placeholder = `${this.hours}:${this.minutes}`;
-  constructor() { }
+  @Input() value: string = '';
+  @Output() valueChange = new EventEmitter<string>();
 
-  ngOnInit(): void {
+  private readonly mask = 'HH:mm';
+
+  constructor() {}
+
+  onInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
+    // Permite apenas números e ':'
+    if (!/[0-9:]/.test(value)) {
+      input.value = value.slice(0, -1);
+      return;
+    }
+    // Valida o formato da máscara
+    if (value.length > this.mask.length) {
+      input.value = value.slice(0, this.mask.length);
+      return;
+    }
+    // Limita o número de caracteres
+    input.value = value.substring(0, 4);
+    // Emite o novo valor
+    this.valueChange.emit(input.value);
   }
-
-  // onKeyDown(event: KeyboardEvent) {
-  //   const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'ArrowLeft', 'ArrowRight'];
-  //   if (!allowedKeys.includes(event.key)) {
-  //     event.preventDefault();
-  //   }
-  // }
-  
 }

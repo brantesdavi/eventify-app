@@ -7,59 +7,64 @@
       style="line-height: 1; font-family: 'Anton', sans-serif; font-size: 45px;">
       CRIAR NOVO EVENTO
   </span>
-  <form #formNewEvent="ngForm" class="space-y-4" (ngSubmit)="submitForm()">
-      <div       
+  <form [formGroup]="eventForm" class="space-y-4" (ngSubmit)="submitForm()">
+    <div       
       class="w-full bg-neutral-800 px-3.5 py-5 rounded-lg space-y-4">
-      <div class="space-y-2">
+      <div class="">
         <div>
           <label for="eventDesc" class="text-neutral-400 ">Titulo do evento</label>
           <input #eventTitle  type="text"
             class="w-full rounded-lg px-3.5 py-1.5 text-sm" placeholder="Festa da firma" 
-            id="eventLocal" name="eventLocal" ngModel required>    
-        </div>       
-        <span 
-        type="button"
-        class="cursor pointer bg-neutral-700 text-neutral-400 px-3.5 py-1.5 rounded-full text-xs font-medium"
-        (click)="generateTitle()"
-        >
-          Sem ideia? Gere um nome legal!!
-          <i class="fas fa-dice-five text-sm"></i>
-        </span> 
+            formControlName="title"
+            id="eventTitle" name="eventTitle" required>    
+        </div>   
       </div>
+          
+      <!-- <span 
+      type="button"
+      class="mt-2 cursor pointer bg-neutral-700 text-neutral-400 px-3.5 py-1.5 rounded-full text-xs font-medium"
+      (click)="generateTitle()"
+      >
+        Sem ideia? Gere um nome legal!!
+        <i class="fas fa-dice-five text-sm"></i>
+      </span>  -->
       <div>
         <label for="eventDesc" class="text-neutral-400 ">Descrição do evento</label>
         <textarea 
         rows="3" class="w-full rounded-lg px-3.5 py-1.5 text-sm" 
-        id="eventDesc" name="eventDesc" [(ngModel)]="eventDesc" required>
+        formControlName="description"
+        id="eventDesc" name="eventDesc" required>
       </textarea>
 
       </div>  
       <div>
+        
         <label for="eventDesc" class="text-neutral-400 ">Local do evento</label>
-          <input type="text"
-            class="w-full rounded-lg px-3.5 py-1.5 text-sm" placeholder="Casa da vovó"
-          id="eventLocal" name="eventLocal"  required>    
+        <input #eventLocal  type="text"
+          class="w-full rounded-lg px-3.5 py-1.5 text-sm" placeholder="Na casa da vovó" 
+          formControlName="local"
+          id="local" name="local" required>    
         </div>
         <div class="flex gap-x-2">
           <div>
             <label for="eventDesc" class="text-neutral-400 ">Data</label>
-            <app-datepicker></app-datepicker>
+            <app-datepicker (datepickerValueChange)="onDateChange($event)"></app-datepicker>
           </div>
           <div>
             <label for="eventDesc" class="text-neutral-400 ">Hora</label>
-            <app-timepicker></app-timepicker>
+            <app-timepicker (valueChange)="onTimeChange($event)"></app-timepicker>
           </div>
         </div>
       <div>
         <label for="eventCategory" class="text-neutral-400 ">Tipo de evento</label>
         <select name="eventCategory"         
-          class="w-full rounded-lg px-3.5 py-1.5 text-sm"
-          [(ngModel)]="selectedCategory"
+          class="w-full rounded-lg px-3.5 py-1.5 text-sm text-black"
           [ngClass]="{'text-black': isDarkOption(selectedCategory), 'text-white': !isDarkOption(selectedCategory)}"
           [ngStyle]="{ 'background-color': getCategoryColor() }"
-          id="eventCategory" name="eventCategory" required ngModel
+          id="eventCategory" name="eventCategory" required
+          formControlName="category" (ngModelChange)="onCategoryChange()"
         >
-          <option value="0" >Escolha uma opção</option>
+          <option value="0" selected >Escolha uma opção</option>
           <option value="1">Festa</option> 
           <option value="2">Conferencia</option>
           <option value="3" >Social</option> 

@@ -81,15 +81,13 @@ export class DatepickerComponent {
     this.no_of_days = daysArray;
   }
   private formatDate(date: Date): string {
-    const days = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'];
     const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
   
-    const dayOfWeek = days[date.getDay()];
     const day = date.getDate();
-    const month = months[date.getMonth()];
+    const month = date.getMonth()+1;
     const year = date.getFullYear();
   
-    return `${dayOfWeek} ${day} ${month} ${year}`;
+    return `${day}/${month}/${year}`;
   }
   
 

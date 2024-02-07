@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/eventify.front",
+    "public": "dist/eventify.front/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
