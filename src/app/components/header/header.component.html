@@ -1,0 +1,17 @@
+<header class="header bg-black flex items-center px-3" style="height: 96px;">  
+  <!-- Div que será oculta na rota home -->
+  <div *ngIf="isHomeRoute" class="flex w-full">
+    <div class="flex items-center space-x-1.5">
+      <div class="bg-white" style="height: 16px; width: 20px;"></div>
+      <span class="font-black text-mainBlue text-xl">Eventify</span>
+    </div>
+    <div class="w-full flex justify-end">
+      <div style="background-color: #D9D9D9; height: 50px; width: 50px;" class="rounded-full"></div>
+    </div>
+  </div>
+  <div *ngIf="!isHomeRoute">    
+    <div style="height: 50px;" (click)="voltar()" class="flex justify-center items-center">
+      <i class="fa-solid fa-chevron-left text-white" style="font-size: 24px;"></i>
+    </div>
+  </div>
+</header>

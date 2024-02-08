@@ -6,6 +6,7 @@ import { NewEventModule } from './pages/new-event/new-event.module';
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './pages/home/home.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderModule } from './components/header/header.module';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DatepickerModule, 
     FormsModule,
     HomeModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HeaderModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
