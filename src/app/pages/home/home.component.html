@@ -1,3 +1,24 @@
-<pre>
-  app-home
-</pre>
+<div class="px-3 bg-black h-full">
+  <div>
+    <button class="bg-mainBlue px-5 py-7 flex" style="border-radius: 15px;">
+      <div class="text-sm text-white text-start">
+        <p class="font-semibold">Bora criar um Evento?</p>
+        <p>
+          Reuna amigos, familia, ou faça conferencias na sua empresa
+        </p>
+      </div>
+      <div class="flex items-end ">
+        <div 
+          style="height: 50px; width: 50px; border-radius: 15px;" 
+          class="bg-white rounded-full flex justify-center items-center">      
+          <i class="fa-solid fa-plus text-mainBlue" style="font-size: 24px;"></i>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div class="container-events py-4">
+    <div *ngFor="let event of eventData" class="" style="margin-bottom: 4px;">
+      <app-event-card [event]="event"></app-event-card>
+    </div>
+  </div>
+</div>

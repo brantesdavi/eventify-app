@@ -59,18 +59,18 @@
         <label for="eventCategory" class="text-neutral-400 ">Tipo de evento</label>
         <select name="eventCategory"         
           class="w-full rounded-lg px-3.5 py-1.5 text-sm text-black"
-          [ngClass]="{'text-black': isDarkOption(selectedCategory), 'text-white': !isDarkOption(selectedCategory)}"
+          [ngClass]="{'text-white': isDarkOption(selectedCategory), 'text-black': !isDarkOption(selectedCategory)}"
           [ngStyle]="{ 'background-color': getCategoryColor() }"
           id="eventCategory" name="eventCategory" required
           formControlName="category" (ngModelChange)="onCategoryChange()"
         >
-          <option value="0" selected >Escolha uma opção</option>
-          <option value="1">Festa</option> 
-          <option value="2">Conferencia</option>
-          <option value="3" >Social</option> 
-          <option value="4">esportivo</option> 
-          <option value="5">cultural</option>
-          <option value="6">Outro</option>
+          <option value="7" selected >Escolha uma opção</option>
+          <option value="0">Festa</option> 
+          <option value="1">Conferencia</option>
+          <option value="2" >Social</option> 
+          <option value="3">esportivo</option> 
+          <option value="4">cultural</option>
+          <option value="5">Outro</option>
         </select>
       </div>      
     </div>  

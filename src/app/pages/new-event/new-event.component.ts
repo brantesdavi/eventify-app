@@ -9,7 +9,7 @@ export class NewEventComponent {
   @ViewChild('eventTitle')
   editableText!: ElementRef;
 
-  selectedCategory: number = 0;
+  selectedCategory: number = 7;
   eventForm: FormGroup  
 
   eventDate: string = "";
@@ -61,19 +61,19 @@ export class NewEventComponent {
 
   getCategoryColor() {
     const colors: { [key: number]: string } = {
-      0: '#393939',
+      0: '#EF7A56',
       1: '#4DB8BF',
       2: '#8C73F3',
       3: '#F1F373',
       4: '#7FFA88',
       5: '#FA7FD8',
-      6: '#EF7A56',
+      7: '#393939',
     };
     return colors[this.selectedCategory] || '#393939'; // Default color
   }
 
   isDarkOption(category: number) {
-    return category >= 1; 
+    return category = 7; 
   }  
 
   submitForm() {

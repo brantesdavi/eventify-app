@@ -1,0 +1,46 @@
+<div style="width: 100%; border-radius: 15px; font-family: 'Montserrat', sans-serif;"
+class="px-5 py-4 space-y-2"
+[style.background-color]="bgColor" >
+  <div class="flex space-x-2" >
+    <div style="width: 60px;">
+      <div 
+      style="height: 60px; width: 60px;"
+      [style.background-color]="colorCircle" 
+      class="rounded-full flex justify-center items-center">
+      <i 
+        [ngClass]="icon" 
+        [style.color]="color" 
+        style="font-size: 28px;"
+      ></i>
+    </div>
+    </div>
+    <div class="w-full">
+      <p class="w-full text-wrap font-bold" style="line-height: 1; font-size: clamp(10px, 25px, 40px);">
+      {{event.title}}
+      </p>
+    </div>
+  </div>
+  <div class="flex items-center font-extrabold" style="color: #323232;">
+    <div class="w-full flex space-x-2">
+      <div class="flex flex-col items-center space-y-2">
+        <i class="fa-solid fa-calendar-days" style="font-size: 17px;"></i>
+        <i class="fa-solid fa-users" style="font-size: 17px;"></i>
+      </div>
+      
+      <div class="flex flex-col items-start space-y-0.5"> 
+        <p class="text-sm text-offBlack"
+        >{{ event.dateTime | date: 'dd/MM/yyyy - HH:mm' }}</p>
+        <p class="text-sm text-offBlack"
+        >{{event.UserList?.length}} participantes</p>
+      </div>
+
+    </div>
+    <div style="width: 50px;">
+      <div 
+      style="height: 50px; width: 50px; border-radius: 15px;" 
+      class="bg-white rounded-full flex justify-center items-center">      
+      <i [style.color]="bgColor" class="fa-solid fa-chevron-right" style="font-size: 24px;"></i>
+    </div>
+  </div>
+</div>
+
