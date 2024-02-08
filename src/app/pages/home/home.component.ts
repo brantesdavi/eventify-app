@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Event } from "../../models/event.model";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -75,4 +76,10 @@ export class HomeComponent {
         ]
         },
   ];
+
+  constructor(private router: Router) { }
+
+  navigateToCreateEvent(): void{
+    this.router.navigate(['/evento/criar']);
+  }
 }
